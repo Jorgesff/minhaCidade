@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   View,
-  Text
+  Text,
+  Image
 } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import Form from './Form';
@@ -19,10 +20,18 @@ class Home extends React.Component {
  };
   render() {
     return (
-      <View>
-        <Text>
-          Ola tela {this.state.title}
-        </Text>
+      <View style={{flex: 1}}>
+        <View style={{flex:1, justifyContent: 'center', alignItems:'center'}}>
+          <Image
+            source={require('../static/care.png')}
+            style={{width: 200, height: 200}}
+          />
+        </View>
+        <View style={{flex: 1, marginRight: 20, marginLeft:20, alignItems: 'center'}}>
+          <Text style={{fontSize: 24}}>
+            Bem Vindo ao Minha Cidade
+          </Text>
+        </View>
       </View>
     );
   }
@@ -49,9 +58,10 @@ export const HomeNavigator = TabNavigator(
   }
 );
 HomeNavigator.navigationOptions = {
-  title: "MinhaCidade",
+  headerTitle: 'Minha Cidade',
   headerTintColor: 'rgb(198, 241, 219)',
   headerStyle: {
     backgroundColor:'rgb(27, 134, 112)'
   }
+
 }
