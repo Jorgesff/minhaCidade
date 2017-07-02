@@ -63,6 +63,9 @@ async handleBeginDate() {
         console.warn('Cannot open date picker', message);
       }
     }
+    onSubmit(){
+
+    }
   render() {
     let hasDiagnostic = this.state.medico
     return (
@@ -85,13 +88,23 @@ async handleBeginDate() {
           <View style={styles.Grid_inline}>
             <Text style={styles.fontS}>Data de inicio </Text>
             <Text style={styles.fontS} >{this.state.begin}</Text>
-            <Button title="calendario" onPress={() => this.handleBeginDate()}/>
+            <Button
+              style={styles.defautButton}
+              title="calendario"
+              onPress={() => this.handleBeginDate()}
+              color= 'rgb(27, 134, 112)'
+            />
           </View>
 
           <View style={styles.Grid_inline}>
             <Text style={styles.fontS}>Data de termino </Text>
             <Text style={styles.fontS}>{this.state.end}</Text>
-            <Button title="calendario" onPress={() => this.handleEndDate()}/>
+            <Button
+              style={styles.defautButton}
+              title="calendario"
+              onPress={() => this.handleEndDate()}
+              color= 'rgb(27, 134, 112)'
+            />
           </View>
           <View style={styles.Grid_inline}>
             <Text style={styles.fontS}>Sente febre? </Text>
@@ -163,6 +176,14 @@ async handleBeginDate() {
           ) :
             null
           }
+          <View style={styles.Grid_submit}>
+            <Button
+              style={styles.defautButton}
+              title="Enviar"
+              onPress={() => {this.onSubmit()}}
+              color= 'rgb(27, 134, 112)'
+            />
+          </View>
         </View>
       </ScrollView>
     );
@@ -207,5 +228,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     marginBottom: 15
+  },
+  Grid_submit: {
+    alignItems: 'flex-end',
+    marginRight: 10
+  },
+  defautButton: {
+    color: 'rgb(27, 134, 112)'
   }
+
 });
